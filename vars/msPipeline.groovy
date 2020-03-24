@@ -1,38 +1,34 @@
 #!/usr/bin/groovy
 
-def call() {
-node {
-   def mvnHome,VERSION
-   stage('Preparation') { // for display purposes
-      // Get some code from a GitHub repository
-      cleanWs()
-   
-       checkout scm        
-   }
+def workspace
 
-
-    stage ('Test') {
-
-
-       sh "mvn clean -DskipTests=true"
-  
-
+node
+{
+    stage('Checkout')
+    {
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'PAC1', url: 'git@github.com:lalithprasad12/Anil_Assignment.git']]])
+        workspace=pwd()
+        
     }
-    // Running Build without skipping tests for PR builds
-   if (env.BRANCH_NAME.startsWith('PR-')){
-        stage ('Install') {
-           sh "mvn clean install"
-           cleanWs()
-        }
-      }
-   
-   //Running build with skipping tests and deploying artifacts
-   else {
-    stage ('Install') {
-        //rtMaven.run pom: 'pom.xml', goals: 'install -DskipTests=true', buildInfo: buildInfo
-        sh "mvn clean install -DskipTests=true"
-       } 
-     }
-   }
+    
+    stage('Static Code Analysis')
+    {
+        echo "Static Code Analysis"
+    }
+    
+     stage('Build')
+    {
+        echo "Build the code"
+    }
+    
+     stage('Unit Testing')
+    {
+        echo "Unit Testing"
+    }
+    
+     stage('Deploy')
+    {
+        echo "Deploy the code"
+    }
+    
 }
-
