@@ -1,5 +1,5 @@
 
-
+def call() {
 node
 {
 
@@ -23,4 +23,5 @@ node
         echo "Deploy the code"
     }
 
+}
 }
