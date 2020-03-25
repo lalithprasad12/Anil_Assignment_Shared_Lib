@@ -1,36 +1,33 @@
 def call() {
-
+    
+    
 node
-	{
-	     stage('Checkout')
-	    {
-	        echo "Checkout the code"
-	    }
-	
+{
+     stage('Checkout')
+    {
+        lalith_AWS_checkout()
+    }
 
-	    stage('Static Code Analysis')
-	    {
-	        echo "Static Analysis the code"
-	    }
-	
+    stage('Static Code Analysis')
+    {
+        lalith_static_code()
+    }
 
-	     stage('Build')
-	    {
-	        echo "Build the code"
-	    }
-	    
-	     stage('Unit Testing')
-	    {
-	        echo "Test the code"
-	    }
-	
+     stage('Build')
+    {
+        lalith_build()
+    }
 
-	     stage('Deploy')
-	    {
-	        echo "Deploy the code"
-	    }
-	
+     stage('Unit Testing')
+    {
+        lalith_unit_test()
+    }
 
-	}
+     stage('Deploy')
+    {
+        lalith_deploy()
+    }
+
+}
 
 }
