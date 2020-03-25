@@ -1,0 +1,1 @@
+echo "Static Code Analysis"

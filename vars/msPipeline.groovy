@@ -12,7 +12,7 @@ node
 
     stage('Static Code Analysis')
     {
-        echo "Static Code Analysis"
+        lalith_static_code()
     }
 
      stage('Build')
