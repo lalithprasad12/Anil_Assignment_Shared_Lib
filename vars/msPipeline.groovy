@@ -17,8 +17,7 @@ node
 
      stage('Build')
     {
-        echo "Build the code"
-        sh label: '', script: 'mvn clean install'
+        lalith_build()
     }
 
      stage('Unit Testing')
