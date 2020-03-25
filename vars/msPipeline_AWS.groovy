@@ -15,7 +15,7 @@ node
 
      stage('Build')
     {
-        lalith_build()
+        lalith_AWS_build()
     }
 
      stage('Unit Testing')
