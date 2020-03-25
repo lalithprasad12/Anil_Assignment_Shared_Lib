@@ -1,1 +1,5 @@
-echo "Static Code Analysis"
+def call() {
+  
+  echo "Static Code Analysis"
+  
+}
