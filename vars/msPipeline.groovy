@@ -6,8 +6,7 @@ node
 {
      stage('Checkout')
     {
-        echo "Checkout"
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'PAC1', url: 'git@github.com:lalithprasad12/Anil_Assignment.git']]])
+        lalith_checkout()
     }
 
     stage('Static Code Analysis')
@@ -22,12 +21,12 @@ node
 
      stage('Unit Testing')
     {
-        echo "Unit Testing"
+        lalith_unit_test()
     }
 
      stage('Deploy')
     {
-        echo "Deploy the code"
+        lalith_deploy()
     }
 
 }
